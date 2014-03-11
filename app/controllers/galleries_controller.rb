@@ -5,25 +5,25 @@ class GalleriesController < ApplicationController
   def show
     @gallery = Gallery.find(params[:id])
   end
-  def new
-    @gallery = Gallery.new
+  def new ##presentation of the form
+    @gallery = Gallery.new  
   end
-  def create
+  def create ##persistence to the database
     gallery = Gallery.create(gallery_params) ##gallery_params instead of params[:gallery]
-    redirect_to "/galleries/#{gallery.id}"
+    redirect_to gallery_path(gallery)##"/galleries/#{gallery.id}"
   end
-  def edit
+  def edit ##presentation of form
     @gallery = Gallery.find(params[:id])
   end
-  def update
+  def update ##persistence to the database
     gallery = Gallery.find(params[:id])
     gallery.update(gallery_params)
-    redirect_to "/galleries/#{gallery.id}"
+    redirect_to gallery_path(gallery)##"/galleries/#{gallery.id}"
   end
   def destroy
     gallery = Gallery.find(params[:id])
     gallery.destroy
-    redirect_to "/"
+    redirect_to root_path
   end
 
 private  
