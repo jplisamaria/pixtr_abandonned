@@ -8,9 +8,13 @@
 <!--{method: :delete} where method is a key and :delete is a symbor for the delete method -->
 
 <% @gallery.images.each do |image| %>
-<p> <%= image.name %> : </p>
-<p> stuff <%= image.description %></p>
-<img src="<%= image.url %>" >
+
+  <p> <%= image.name %> : </p>
+  <p> stuff <%= image.description %></p>
+  
+  <%= link_to image do %> 
+    <img src="<%= image.url %>" >
+    <% end %>
 <% end %> 
 
 

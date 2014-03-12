@@ -1,8 +1,10 @@
 <h2>My Galleries</h2>
-<nav><%= link_to "New Gallery" , new_gallery_path %> </nav>
+<nav><%= link_to "Add New Gallery" , new_gallery_path %> </nav>
 
 <div>
+<ul>
 <% @galleries.each do |gallery| %>
-  <%= link_to gallery.name, gallery_path(gallery) %> <!--don't need gallery.1
+<li><h3>  <%= link_to gallery.name, gallery_path(gallery) %> </h3></li>
 <% end %>
+</ul>
 </div>
